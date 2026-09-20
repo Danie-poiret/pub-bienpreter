@@ -8,68 +8,78 @@
 html, body {
     margin: 0;
     padding: 0;
-    background: transparent;
     font-family: Arial, sans-serif;
+    background: transparent;
 }
 
-.pub-amazon {
-    width: 300px;
-    max-width: calc(100vw - 20px);
-    margin: 0 auto;
+#pub-amazon {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     box-sizing: border-box;
+    z-index: 999999;
+
     background: white;
-    border: 2px solid #ff9900;
-    border-radius: 14px;
-    padding: 20px;
+    border-bottom: 2px solid #ff9900;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.25);
+
+    padding: 10px;
     text-align: center;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.25);
 }
 
-.titre {
-    font-size: 22px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.texte {
-    font-size: 15px;
-    line-height: 1.4;
-    margin-bottom: 15px;
-}
-
-.bouton {
-    display: block;
+#pub-amazon a {
+    display: inline-block;
     background: #ff9900;
     color: #111;
     text-decoration: none;
-    padding: 13px;
-    border-radius: 8px;
-    font-size: 16px;
+    font-weight: bold;
+    padding: 11px 20px;
+    border-radius: 7px;
+    margin-left: 10px;
+}
+
+#pub-amazon .titre {
+    font-size: 18px;
     font-weight: bold;
 }
 
-.mention {
-    margin-top: 10px;
-    font-size: 10px;
+#pub-amazon .mention {
+    font-size: 9px;
     color: #777;
+    margin-top: 5px;
+}
+
+@media (max-width: 600px) {
+
+    #pub-amazon {
+        padding: 8px;
+    }
+
+    #pub-amazon .titre {
+        font-size: 15px;
+        display: block;
+        margin-bottom: 7px;
+    }
+
+    #pub-amazon a {
+        margin-left: 0;
+        padding: 9px 15px;
+        font-size: 14px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<div class="pub-amazon">
+<div id="pub-amazon">
 
-    <div class="titre">
-        🛒 AMAZON
-    </div>
+    <span class="titre">
+        🛒 MES BONS PLANS AMAZON
+    </span>
 
-    <div class="texte">
-        Découvrez ma sélection et mes bons plans sur Amazon.
-    </div>
-
-    <a class="bouton"
-       href="https://amzn.to/4hihgNN"
+    <a href="https://amzn.to/4hihgNN"
        target="_blank"
        rel="nofollow sponsored noopener">
         VOIR SUR AMAZON ➜
