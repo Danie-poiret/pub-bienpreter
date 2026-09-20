@@ -8,88 +8,110 @@
 html, body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
     background: transparent;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
 }
 
-#pub-amazon {
+#overlay {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    box-sizing: border-box;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.15);
     z-index: 999999;
+}
 
+#pub {
+    position: relative;
+    width: 300px;
+    max-width: calc(100vw - 20px);
+    height: 300px;
+    box-sizing: border-box;
     background: white;
-    border-bottom: 2px solid #ff9900;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.25);
-
-    padding: 10px;
+    border: 3px solid #ff9900;
+    border-radius: 16px;
+    box-shadow: 0 6px 25px rgba(0,0,0,0.35);
+    padding: 30px 18px 18px;
     text-align: center;
 }
 
-#pub-amazon a {
-    display: inline-block;
+#close {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    border: 0;
+    background: transparent;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+h2 {
+    margin: 20px 0 10px;
+    font-size: 25px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.amazon-btn {
+    display: block;
+    margin-top: 25px;
     background: #ff9900;
     color: #111;
     text-decoration: none;
-    font-weight: bold;
-    padding: 11px 20px;
-    border-radius: 7px;
-    margin-left: 10px;
-}
-
-#pub-amazon .titre {
-    font-size: 18px;
+    padding: 14px;
+    border-radius: 9px;
+    font-size: 17px;
     font-weight: bold;
 }
 
-#pub-amazon .mention {
-    font-size: 9px;
+.mention {
+    margin-top: 14px;
+    font-size: 10px;
     color: #777;
-    margin-top: 5px;
-}
-
-@media (max-width: 600px) {
-
-    #pub-amazon {
-        padding: 8px;
-    }
-
-    #pub-amazon .titre {
-        font-size: 15px;
-        display: block;
-        margin-bottom: 7px;
-    }
-
-    #pub-amazon a {
-        margin-left: 0;
-        padding: 9px 15px;
-        font-size: 14px;
-    }
 }
 </style>
 </head>
 
 <body>
 
-<div id="pub-amazon">
+<div id="overlay">
 
-    <span class="titre">
-        🛒 MES BONS PLANS AMAZON
-    </span>
+    <div id="pub">
 
-    <a href="https://amzn.to/4hihgNN"
-       target="_blank"
-       rel="nofollow sponsored noopener">
-        VOIR SUR AMAZON ➜
-    </a>
+        <button id="close" aria-label="Fermer">×</button>
 
-    <div class="mention">
-        Lien partenaire Amazon
+        <h2>🛒 AMAZON</h2>
+
+        <p>
+            Découvrez ma sélection et mes bons plans sur Amazon.
+        </p>
+
+        <a
+          class="amazon-btn"
+          href="https://amzn.to/4hihgNN"
+          target="_blank"
+          rel="nofollow sponsored noopener">
+            VOIR SUR AMAZON ➜
+        </a>
+
+        <div class="mention">
+            En tant que Partenaire Amazon, je réalise un bénéfice sur les achats remplissant les conditions requises.
+        </div>
+
     </div>
 
 </div>
+
+<script>
+document.getElementById("close").onclick = function () {
+    document.getElementById("overlay").style.display = "none";
+};
+</script>
 
 </body>
 </html>
