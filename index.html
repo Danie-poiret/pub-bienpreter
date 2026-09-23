@@ -10,108 +10,104 @@ html, body {
     padding: 0;
     background: transparent;
     font-family: Arial, sans-serif;
+}
+
+body {
     overflow: hidden;
 }
 
-#overlay {
-    position: fixed;
-    inset: 0;
+.banner {
+    width: 100%;
+    box-sizing: border-box;
+    background: linear-gradient(90deg, #ff9900, #ffb84d);
+    color: #111;
+    border: 2px solid #e68a00;
+    border-radius: 14px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.20);
+    padding: 14px 18px;
+}
+
+.banner-inner {
     display: flex;
     align-items: center;
-    justify-content: center;
-    background: rgba(0,0,0,0.15);
-    z-index: 999999;
+    justify-content: space-between;
+    gap: 15px;
 }
 
-#pub {
-    position: relative;
-    width: 300px;
-    max-width: calc(100vw - 20px);
-    height: 300px;
-    box-sizing: border-box;
-    background: white;
-    border: 3px solid #ff9900;
-    border-radius: 16px;
-    box-shadow: 0 6px 25px rgba(0,0,0,0.35);
-    padding: 30px 18px 18px;
-    text-align: center;
-}
-
-#close {
-    position: absolute;
-    top: 5px;
-    right: 10px;
-    border: 0;
-    background: transparent;
-    font-size: 26px;
-    cursor: pointer;
-}
-
-h2 {
-    margin: 20px 0 10px;
-    font-size: 25px;
-}
-
-p {
-    font-size: 16px;
-    line-height: 1.4;
-}
-
-.amazon-btn {
-    display: block;
-    margin-top: 25px;
-    background: #ff9900;
-    color: #111;
-    text-decoration: none;
-    padding: 14px;
-    border-radius: 9px;
-    font-size: 17px;
+.banner-text {
+    font-size: 22px;
     font-weight: bold;
+    line-height: 1.2;
+}
+
+.banner-sub {
+    font-size: 13px;
+    margin-top: 4px;
+    font-weight: normal;
+}
+
+.banner-btn {
+    display: inline-block;
+    background: #111;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 12px 18px;
+    border-radius: 10px;
+    white-space: nowrap;
 }
 
 .mention {
-    margin-top: 14px;
     font-size: 10px;
-    color: #777;
+    margin-top: 8px;
+    color: #333;
+    text-align: center;
+}
+
+@media (max-width: 700px) {
+    .banner-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .banner-text {
+        font-size: 18px;
+    }
+
+    .banner-sub {
+        font-size: 12px;
+    }
+
+    .banner-btn {
+        width: 100%;
+        box-sizing: border-box;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<div id="overlay">
-
-    <div id="pub">
-
-        <button id="close" aria-label="Fermer">×</button>
-
-        <h2>🛒 AMAZON</h2>
-
-        <p>
-            Découvrez ma sélection et mes bons plans sur Amazon.
-        </p>
-
-        <a
-          class="amazon-btn"
-          href="https://amzn.to/4hihgNN"
-          target="_blank"
-          rel="nofollow sponsored noopener">
-            VOIR SUR AMAZON ➜
-        </a>
-
-        <div class="mention">
-            En tant que Partenaire Amazon, je réalise un bénéfice sur les achats remplissant les conditions requises.
+<div class="banner">
+    <div class="banner-inner">
+        <div>
+            <div class="banner-text">🛒 DÉCOUVRE MES BONS PLANS AMAZON</div>
+            <div class="banner-sub">Clique ici pour voir ma sélection et mes offres du moment</div>
         </div>
 
+        <a class="banner-btn"
+           href="https://amzn.to/4hihgNN"
+           target="_blank"
+           rel="nofollow sponsored noopener">
+           VOIR LES OFFRES ➜
+        </a>
     </div>
 
+    <div class="mention">
+        En tant que Partenaire Amazon, je réalise un bénéfice sur les achats remplissant les conditions requises.
+    </div>
 </div>
-
-<script>
-document.getElementById("close").onclick = function () {
-    document.getElementById("overlay").style.display = "none";
-};
-</script>
 
 </body>
 </html>
